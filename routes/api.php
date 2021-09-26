@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::namespace('App\Http\Controllers\Api')->group(function(){
-    Route::apiResource('jobs', 'JobController');
-    Route::apiResource('candidatos', 'CandidateController');
+Route::prefix('/v1')->group(function () {
+    Route::namespace('App\Http\Controllers\Api')->group(function(){
+        Route::apiResource('vagas', 'JobController');
+        Route::apiResource('pessoas', 'CandidateController');
+    });
 });
