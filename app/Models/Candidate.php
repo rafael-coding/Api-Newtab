@@ -15,4 +15,9 @@ class Candidate extends Model
         'localization',
         'level',
     ];
+
+    protected $hidden = [
+        'updated_at',
+        'created_at',
+    ];
 }

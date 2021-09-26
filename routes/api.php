@@ -22,5 +22,10 @@ Route::prefix('/v1')->group(function () {
     Route::namespace('App\Http\Controllers\Api')->group(function(){
         Route::apiResource('vagas', 'JobController');
         Route::apiResource('pessoas', 'CandidateController');
+        Route::apiResource('candidaturas', 'ApplicationController');
+
+        Route::prefix('/vagas')->group(function () {
+            Route::get('/{idJob}/candidaturas/ranking', ['App\Http\Controllers\Api\ApplicationController', 'ranking']);
+        });
     });
 });
